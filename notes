@@ -1,0 +1,45 @@
+// int main(){
+// 	Test example;
+// 	Test example2("Gangplank");
+
+// 	std::cout << "My name is : "<< example.getName() << std::endl;
+// 	std::cout << "My name is : "<< example2.getName() << std::endl;
+
+// 	example.setName("hello");
+// 	std::cout << "My name is : "<< example.getName() << std::endl;
+// }
+
+// Test::Test() : _name("") {
+// 	std::cout << "Consctructor called" << std::endl;
+// };
+
+// Test::Test(const std::string &name) : _name(name) {
+// 	std::cout << "Parametrized Consctructor called" << std::endl;
+// 	this->_name = name;
+// }
+
+// Test::~Test(){
+// 	std::cout << "Destructor called" << std::endl;
+// }
+
+// Test::Test(const Test &other) : _name(other._name) {
+// 	_name = other._name;
+// 	std::cout << "Copy constructor called" << std::endl;
+// }
+
+// Test& Test::operator=(const Test &other){
+// 	if (this != &other) {
+// 		_name = other._name;
+// 	}
+// 	return *this;
+// }
+
+// void Test::setName(const std::string &name) {
+// 	_name = name;
+// }
+
+// const std::string &Test::getName() const {
+// 	return _name;
+// }
+
+// cstd::cout << CYAN << "greikgerogr" << RESET << std::endl;
