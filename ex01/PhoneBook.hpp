@@ -10,7 +10,7 @@ class PhoneBook{
 	PhoneBook();
 	~PhoneBook();
 	const std::size_t get_contact_number() const;
-	// Contact 
+	// Contact
 	void set_contact_number(std::size_t number);
 	private:
 	Contact 	_contacts[8];
