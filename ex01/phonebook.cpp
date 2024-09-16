@@ -1,45 +1,31 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include <cstddef>
 #include <iostream>
+#include <iterator>
 #include <string>
 
 PhoneBook::PhoneBook(){
-	contact_number = 0;
+	_contact_number = 0;
 }
 
-const std::string	add_contact_info(const std::string &data)
-{
-	std::cout << "Please enter the new contact " << data << std::endl;
-	std::string prompt;
-	std::getline(std::cin, prompt);
-	while(prompt.empty()){
-		std::cout << "please enter regular first name";
-		std::getline(std::cin, prompt);
-	}
-	return prompt;
+PhoneBook::~PhoneBook (){
+	;
+	// std::cout << "Destructor Called\n";
 }
 
+std::size_t PhoneBook::get_contact_number (){
+	return _contact_number;
+}
 
-int main() {
+void PhoneBook::set_contact_number(std::size_t number){
+	_contact_number = number;
+}
 
-	// std::string line;
-	// std::getline(std::cin, line)
-	PhoneBook list;
-    for (std::string line; std::getline(std::cin, line);) {
-		if(line == "EXIT"){
-			std::cout << "bye bye\n";
-			return (0);
-		}
-		if(line == "ADD"){
-			Contact contact;
-			contact.set_fname(add_contact_info("first name"));
-			contact.set_lname(add_contact_info("last name"));
-			contact.set_nickname(add_contact_info("nickname"));
-			contact.set_phone_number(add_contact_info("phone number"));
-			contact.set_darkest_secret(add_contact_info("darkest secret"));
-			list[]
-		}
-        // std::cout << line << std::endl;
-    }
-    return 0;
+void PhoneBook::set_contact_list(Contact &contact){
+
+	if(_contact_number == 7)
+		_contact_number = 0;
+	_contacts[_contact_number] = contact;
+	_contact_number += 1;
 }

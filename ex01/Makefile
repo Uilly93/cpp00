@@ -4,7 +4,8 @@ CFLAGS   = -Wall -Wextra -Werror -MMD -g3
 SRC_PATH = src/
 OBJ_PATH = .obj/
 SRC_NAME =	phonebook.cpp \
-			Contact.cpp
+			Contact.cpp \
+			main.cpp 
 OBJ_NAME = $(SRC_NAME:.cpp=.o) 
 OBJ 	 = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
