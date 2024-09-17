@@ -1,6 +1,6 @@
 NAME 	 = megaphone
 CC 		 = c++
-CFLAGS   = -Wall -Wextra -Werror -MMD -g3
+CFLAGS   = -Wall -Wextra -Werror -MMD -g3 -std=C++98
 SRC_PATH = src/
 OBJ_PATH = .obj/
 SRC_NAME =	megaphone.cpp

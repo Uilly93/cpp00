@@ -1,6 +1,6 @@
 NAME 	 = phonebook
 CC 		 = c++
-CFLAGS   = -Wall -Wextra -Werror -MMD -g3
+CFLAGS   = -Wall -Wextra -Werror -MMD -g3 -std=c++98
 SRC_PATH = src/
 OBJ_PATH = .obj/
 SRC_NAME =	phonebook.cpp \
