@@ -1,11 +1,9 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <cstddef>
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
 #include "../Colors.hpp"
-#include <string>
 
 PhoneBook::PhoneBook(){
 	_contact_number = 0;
@@ -14,16 +12,47 @@ PhoneBook::PhoneBook(){
 
 PhoneBook::~PhoneBook (){
 	;
-	// std::cout << "Destructor Called\n";
 }
 
 std::size_t PhoneBook::get_contact_number (){
 	return _contact_number;
 }
 
-// void PhoneBook::set_contact_number(std::size_t number){
-// 	_contact_number = number;
-// }
+const std::string	add_contact_info(const std::string &data){
+	std::cout << NGREEN <<"Please enter the new contact " << data << " > " << RESET;
+	std::string prompt;
+	std::getline(std::cin, prompt);
+	if(std::cin.eof())
+		std::exit(1);
+	if(data == "phone number")
+		while(!only_digit_string(prompt))
+		{
+			std::cout << BIRED << "You need an only digit number > " << RESET;
+			std::getline(std::cin, prompt);
+			if(std::cin.eof())
+				std::exit(1);
+		}
+	while(prompt.empty())
+	{
+		std::cout << BIRED << "Please enter regular " << data << " > " << RESET;
+		std::getline(std::cin, prompt);
+		if(std::cin.eof())
+			std::exit(1);
+	}
+	return prompt;
+}
+
+void	PhoneBook::add_contact_in_phonebook(PhoneBook &phonebook){
+	Contact contact;
+	contact.set_fname(add_contact_info("first name"));
+	contact.set_lname(add_contact_info("last name"));
+	contact.set_phone_number(add_contact_info("phone number"));
+	contact.set_nickname(add_contact_info("nickname"));
+	contact.set_darkest_secret(add_contact_info("darkest secret"));
+	phonebook.set_contact_list(contact);
+	std::cout << phonebook.get_contact_number() << std::endl;
+	std::cout << NGREEN << "Contact " << NCYAN << contact.get_fname() << NGREEN << " added succesfully\n" << RESET;
+}
 
 void PhoneBook::set_contact_list(Contact &contact){
 
@@ -71,7 +100,7 @@ void PhoneBook::display_phonebook(){
 	if(_contact_number > 0)
 	{
 		std::cout << std::setw(48) << NCYAN "PHONEBOOK\n" RESET;
-		std::cout << std::setw(59) << NPURPLE "\033[5mSelect a contact\033[0m\n" RESET;
+		std::cout << std::setw(55) << NPURPLE BLINK "Select a contact\n" RESET;
 		std::cout << std::setw(21);
 		std::cout << BG_BLUE "|" RESET;
 		std::cout << std::setw(21);
@@ -88,7 +117,7 @@ void PhoneBook::display_phonebook(){
 		std::cout << BG_BLUE "|" RESET << std::endl;
 		for(std::size_t i = 0; i < _contact_number; i++)
 			display_contact(i);
-		std::cout << std::setw(59) << NPURPLE "\033[5mSelect a contact\033[0m\n" RESET;
+		std::cout << std::setw(55) << NPURPLE BLINK "Select a contact\n" RESET;
 	}
 	else
 		std::cout << NRED "No contact in the phonebook\n" RESET;

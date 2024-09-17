@@ -2,48 +2,7 @@
 #include "Contact.hpp"
 #include <iostream>
 #include <iomanip>
-#include <ostream>
-#include <string>
-#include <stdlib.h>
 #include "../Colors.hpp"
-
-
-const std::string	add_contact_info(const std::string &data)
-{
-	std::cout << NGREEN <<"Please enter the new contact " << data << " > " << RESET;
-	std::string prompt;
-	std::getline(std::cin, prompt);
-	if(std::cin.eof())
-		exit(1);
-	if(data == "phone number")
-		while(!only_digit_string(prompt))
-		{
-			std::cout << BIRED << "You need an only digit number > " << RESET;
-			std::getline(std::cin, prompt);
-			if(std::cin.eof())
-				exit(1);
-		}
-	while(prompt.empty())
-	{
-		std::cout << BIRED << "Please enter regular " << data << " > " << RESET;
-		std::getline(std::cin, prompt);
-		if(std::cin.eof())
-			exit(1);
-	}
-	return prompt;
-}
-
-void	add_contact_in_phonebook(PhoneBook &phonebook){
-	Contact contact;
-	contact.set_fname(add_contact_info("first name"));
-	contact.set_lname(add_contact_info("last name"));
-	contact.set_phone_number(add_contact_info("phone number"));
-	contact.set_nickname(add_contact_info("nickname"));
-	contact.set_darkest_secret(add_contact_info("darkest secret"));
-	phonebook.set_contact_list(contact);
-	std::cout << phonebook.get_contact_number() << std::endl;
-	std::cout << NGREEN << "Contact " << NCYAN << contact.get_fname() << NGREEN << " added succesfully\n" << RESET;
-}
 
 void	print_welcome(bool welcome){
 	if(welcome == true){
@@ -61,7 +20,7 @@ int main() {
 	std::cout << NBLUE << "PhoneBook > " << RESET;
     for (std::string line; std::getline(std::cin, line);) {
 		if(line == "ADD")
-			add_contact_in_phonebook(phonebook);
+			phonebook.add_contact_in_phonebook(phonebook);
 		else if(line == "SEARCH")
 		{
 			phonebook.display_phonebook();
