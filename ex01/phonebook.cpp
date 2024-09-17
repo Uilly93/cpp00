@@ -112,13 +112,18 @@ std::size_t	PhoneBook::select_contact(){
 		std::getline(std::cin, prompt);
 		if(std::cin.eof())
 			std::exit(1);
+		if(prompt.size() > 1)
+		{
+			std::cout << BIRED << "Invalid index > " << RESET;
+			continue ;
+		}
 		std::size_t index = std::atoi(prompt.c_str());
 		if(prompt.empty() || !only_digit_string(prompt))
 		{
 			std::cout << BIRED << "Invalid index > " << RESET;
 			continue ;
 		}
-		if((index > 7 && index < 0 ) || index > get_contact_number())
+		if(index > 7 || index < 0 || index > get_contact_number() - 1)
 		{
 			std::cout << BIRED << "Invalid index > " << RESET;
 			continue ;
@@ -129,9 +134,9 @@ std::size_t	PhoneBook::select_contact(){
 
 void	PhoneBook::print_contact_infos(){
 	std::size_t index = select_contact();
-	std::cout << "Contact n*" << index << " First Name is: " << _contacts[index].get_fname() << std::endl;
-	std::cout << "Contact n*" << index << " Last Name is: " << _contacts[index].get_lname() << std::endl;
-	std::cout << "Contact n*" << index << " Phone Number is: " << _contacts[index].get_phone_number() << std::endl;
-	std::cout << "Contact n*" << index << " Nickname is: " << _contacts[index].get_nickname() << std::endl;
-	std::cout << "Contact n*" << index << " Darkest secret is: " << _contacts[index].get_darkest_secret() << std::endl;
+	std::cout << GREEN "Contact index " NGREEN << index << GREEN " First Name is: " NGREEN << _contacts[index].get_fname() << RESET << std::endl;
+	std::cout << GREEN "Contact index " NGREEN << index << GREEN " Last Name is: " NGREEN << _contacts[index].get_lname() << RESET << std::endl;
+	std::cout << GREEN "Contact index " NGREEN << index << GREEN " Phone Number is: " NGREEN << _contacts[index].get_phone_number() << RESET << std::endl;
+	std::cout << GREEN "Contact index " NGREEN << index << GREEN " Nickname is: " NGREEN << _contacts[index].get_nickname() << RESET << std::endl;
+	std::cout << GREEN "Contact index " NGREEN << index << GREEN " Darkest secret is: " NGREEN << _contacts[index].get_darkest_secret() << RESET << std::endl;
 }
