@@ -1,7 +1,4 @@
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include <iostream>
-#include <iomanip>
 #include "../Colors.hpp"
 
 void	print_welcome(bool welcome){

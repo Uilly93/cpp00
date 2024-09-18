@@ -1,8 +1,4 @@
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include <cstdlib>
-#include <iostream>
-#include <iomanip>
 #include "../Colors.hpp"
 
 PhoneBook::PhoneBook(){
