@@ -96,7 +96,7 @@ void	PhoneBook::display_contact(std::size_t index){
 	std::cout << "*-------------------------------------------*" << std::endl;
 }
 
-void PhoneBook::display_phonebook(){
+int PhoneBook::display_phonebook(){
 	if(_contact_number > 0)
 	{
 		std::cout << std::setw(48) << NCYAN "PHONEBOOK\n" RESET;
@@ -118,9 +118,13 @@ void PhoneBook::display_phonebook(){
 		for(std::size_t i = 0; i < _contact_number; i++)
 			display_contact(i);
 		std::cout << std::setw(55) << NPURPLE BLINK "Select a contact\n" RESET;
+		return (1);
 	}
 	else
+	{
 		std::cout << NRED "No contact in the phonebook\n" RESET;
+		return (0);
+	}
 }
 
 int	only_digit_string(std::string &prompt)

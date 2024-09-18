@@ -13,7 +13,7 @@ class PhoneBook{
 	~PhoneBook();
 	void		add_contact_in_phonebook(PhoneBook &phonebook);
 	void		print_contact_infos();
-	void 		display_phonebook();
+	int			display_phonebook();
 	private:
 	void		display_contact(std::size_t index);
 	void		set_contact_list(Contact &contact);

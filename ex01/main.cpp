@@ -23,8 +23,8 @@ int main() {
 			phonebook.add_contact_in_phonebook(phonebook);
 		else if(line == "SEARCH")
 		{
-			phonebook.display_phonebook();
-			phonebook.print_contact_infos();
+			if(phonebook.display_phonebook())
+				phonebook.print_contact_infos();
 		}
 		else if(line == "EXIT"){
 			std::cout << "bye bye\n";
