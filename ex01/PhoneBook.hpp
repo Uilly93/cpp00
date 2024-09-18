@@ -7,8 +7,6 @@
 #include <iostream>
 #include "Contact.hpp"
 
-int	only_digit_string(std::string &prompt);
-
 class PhoneBook{
 	public:
 	PhoneBook();

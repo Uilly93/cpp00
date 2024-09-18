@@ -14,6 +14,16 @@ std::size_t PhoneBook::get_contact_number (){
 	return _contact_number;
 }
 
+int	only_digit_string(std::string &prompt)
+{
+	for(int i = 0; prompt[i]; i++){
+		if(isdigit(prompt[i])){
+			return 1;
+		}
+	}
+	return 0;
+}
+
 const std::string	add_contact_info(const std::string &data){
 	std::cout << NGREEN <<"Please enter the new contact " << data << " > " << RESET;
 	std::string prompt;
@@ -123,15 +133,6 @@ int PhoneBook::display_phonebook(){
 	}
 }
 
-int	only_digit_string(std::string &prompt)
-{
-	for(int i = 0; prompt[i]; i++){
-		if(isdigit(prompt[i])){
-			return 1;
-		}
-	}
-	return 0;
-}
 
 std::size_t	PhoneBook::select_contact(){
 	std::cout << NGREEN "Select the contact index you want display > " RESET;
