@@ -1,5 +1,5 @@
 #include "PhoneBook.hpp"
-#include "../Colors.hpp"
+#include "colors.hpp"
 
 PhoneBook::PhoneBook(){
 	_contact_number = 0;

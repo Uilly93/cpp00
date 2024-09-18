@@ -1,5 +1,5 @@
 #include "PhoneBook.hpp"
-#include "../Colors.hpp"
+#include "colors.hpp"
 
 void	print_welcome(bool welcome){
 	if(welcome == true){
